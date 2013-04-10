@@ -29,4 +29,11 @@ public class WordCountBolt extends BaseBasicBolt {
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
 		declarer.declare(new Fields("word", "count"));
 	}
+
+	public void cleanup() {
+		System.err.println("~~~~~~~~~~~~~~~~~");
+		for (Map.Entry<String, Integer> entry : counts.entrySet()) {
+			System.err.println(entry.getKey() + ": " + entry.getValue());
+		}
+	}
 }
