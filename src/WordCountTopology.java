@@ -18,11 +18,11 @@ public class WordCountTopology {
 				"spout");
 
 		builder.setBolt("count", new WordCountBolt(), 12).fieldsGrouping(
-				"spout", new Fields("word"));
+				"split", new Fields("word"));
 
 		Config conf = new Config();
 		conf.setDebug(true);
-
+		
 		if (args != null && args.length > 0) {
 			conf.setNumWorkers(3);
 

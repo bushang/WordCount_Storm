@@ -31,7 +31,8 @@ public class WordCountBolt extends BaseBasicBolt {
 	}
 
 	public void cleanup() {
-		System.err.println("~~~~~~~~~~~~~~~~~");
+		System.err.println("\n~~~~~~~~~~~~~~~~~ " + counts.size());
+
 		for (Map.Entry<String, Integer> entry : counts.entrySet()) {
 			System.err.println(entry.getKey() + ": " + entry.getValue());
 		}
